@@ -31,12 +31,22 @@ const initialTareas = [
 const App = () => {
   const [tareasArray, setTareasArray] = useState(initialTareas);
 
+  const agregarTarea = (tarea) => {
+    setTareasArray([...tareasArray, tarea]);
+  };
+
+  const eliminarTarea = (id) => {
+    const arrFiltrado = tareasArray.filter((item) => item.id !== id);
+    setTareasArray(arrFiltrado); 
+  }
+
   return (
     <>
       <div className="container my-3">
         <h2 className="mb-3 text-primary">Formulario</h2>
-        <Formulario />
+        <Formulario agregarTarea={agregarTarea} />
         <Tareas 
+          eliminarTarea={eliminarTarea}
           tareasArray={tareasArray}
         />
       </div>
