@@ -1,10 +1,11 @@
 import React from "react";
 
-const Tarea = ({item, eliminarTarea}) => {
+const Tarea = ({item, eliminarTarea, actualizarTarea}) => {
    
     const {title, description, priority, state, id} = item; 
   return (
     <li className="list-group-item d-flex justify-content-between align-items-start mt-2 border p-2">
+        {/* <div className="d-none text-center">No hay tareas</div> */}
         <div className="ms-2 me-auto">
             <div className="fw-bold">
                 {title}
@@ -19,7 +20,7 @@ const Tarea = ({item, eliminarTarea}) => {
                 <button className="btn btn-sm btn-danger me-1" onClick={() => eliminarTarea(id)}>
                     Eliminar
                 </button>
-                <button className="btn btn-sm btn-warning me-1">
+                <button className="btn btn-sm btn-warning me-1" onClick={() => actualizarTarea(id)}>
                     Editar
                 </button>
             </div>
